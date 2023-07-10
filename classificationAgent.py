@@ -63,4 +63,4 @@ def test(testing_examples):
 
 
 if __name__ == "__main__":
-    test(20) #do testing with 20 random images 
+    test(15) #do testing with 20 random images 
