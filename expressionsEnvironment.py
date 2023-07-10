@@ -3,11 +3,12 @@ import numpy as np
 
 class expressionsEnvironment(Environment):
     
-    def __init__(self, image):
-        self.initial_percepts(image)
+    def __init__(self, image=None):
+        if not image is None:
+            self.initial_percepts(image)
 
     def initial_percepts(self, image):
-        image = np.rot90(np.rot90(np.rot90(image)))
+        image = np.rot90(np.rot90(np.rot90(np.array(image))))
         self.images = image.reshape(-1, 28, 28)
         for i in range(len(self.images)):
             self.images[i] = np.rot90(self.images[i])

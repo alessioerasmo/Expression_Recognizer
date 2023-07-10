@@ -30,9 +30,9 @@ class expressionAgent(Agent):
             if self.env.not_finished():
                 image = self.env.pick_next()
                 if self.number_expected:
-                    expression = expression + str(self.predict_number(image)) + " "
+                    expression = expression + str(self.predict_number(image))
                 else:
-                    expression = expression + str(self.guess(image)) + " "
+                    expression = expression + str(self.guess(image))
             else:
                 return expression
         
@@ -69,10 +69,14 @@ def test():
     import matplotlib.pyplot as plt
 
     img = np.array(Image.open("Test\\10.jpg").convert('L'))
-    
+
+    plt.imshow(img)
+    plt.show()
+
     exp_env = expressionsEnvironment(img)
     agent = expressionAgent(exp_env)
   
+
     result = agent.go()
     print("\nexpression found: ", result, " = ", eval(result))
 
