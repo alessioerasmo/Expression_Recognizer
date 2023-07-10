@@ -88,14 +88,16 @@ model.fit(x_train, y_train, epochs=1000)
 # testing model 
 loss, accuracy = model.evaluate(x_test,y_test)
 print("\n\nTesting results:\n\nloss: ", loss, "\naccuracy", accuracy,"\n\n")
+
+# export model
+# model.save('Learning/Model_Exports/operators.h5')
+
 """
+LAST EXPORTED MODEL TEST RESULTS:
+
 loss:  0.12140178680419922
 accuracy 0.9722222089767456
 """
-
-
-# export model
-model.save('Learning/Model_Exports/operators.h5')
 
 
 """
