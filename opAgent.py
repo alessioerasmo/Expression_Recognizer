@@ -5,11 +5,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class opAgent(Agent):
-    def __init__(self,env):
+
+    def __init__(self,env=None):
         # loading the exported model
         self.model = keras.models.load_model('Learning\Model_Exports\operators.h5')
         # the environment is an array of images, each converted into a numpy array of shape (28, 28)
-        self.env=np.array(env).reshape(-1, 28, 28, 1) 
+        if not env is None:
+            self.set_env(env)
 
     def go(self):
 
@@ -28,12 +30,17 @@ class opAgent(Agent):
             elif values[i] == 1:
                 signs.append('-')
             elif values[i] == 2:
-                signs.append('x')
+                signs.append('*')
             elif values[i] == 3:
                 signs.append('/')
 
         # outs an array with predictions as chars '+', '-', 'x', '/'
         return np.array(signs) 
+    
+    
+    def set_env(self, new_env):
+        self.env=np.array(new_env).reshape(-1, 28, 28, 1) 
+        
     
 
 # testing agent and plotting results 
@@ -71,4 +78,4 @@ def test(testing_examples):
         plt.show()
 
 if __name__ == "__main__":
-    test(5) #do testing with 5 random images
+    test(1) #do testing with 5 random images

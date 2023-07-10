@@ -6,12 +6,16 @@ import matplotlib.pyplot as plt
 
 
 class classificationAgent(Agent):
-    def __init__(self,env):
+    
+    
+
+    def __init__(self,env=None):
         # loading the exported model
         self.model = keras.models.load_model('Learning\Model_Exports\operators_numbers_classificator.h5')
         # the environment is an array of images, each converted into a numpy array of shape (28, 28)
-        self.env=np.array(env).reshape(-1, 28, 28, 1) 
-
+        if not env is None:
+            self.set_env(env)
+        
     def go(self):
         predictions = self.model.predict(self.env)
         labels = []
@@ -21,6 +25,10 @@ class classificationAgent(Agent):
             else:
                 labels.append("operazione")
         return np.array(labels)
+    
+    def set_env(self, new_env):
+        self.env=np.array(new_env).reshape(-1, 28, 28, 1) 
+        
 
 
 # testing agent and plotting results 

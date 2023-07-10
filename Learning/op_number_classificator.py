@@ -21,7 +21,7 @@ for i in range(len(op_y_train)):
 op_x_train = np.array(op_x_train)
 
 # learning_numbers
-numbers_over_ops = 2    # relationship between numbers and operations in the dataset
+numbers_over_ops = 3    # relationship between numbers and operations in the dataset
 
 tf.keras.datasets.mnist.load_data(path="mnist.npz")
 
@@ -96,7 +96,7 @@ print("\n\nTesting results with only operators set:\n\nloss: ", loss, "\naccurac
 
 
 # export model
-model.save('Learning\Model_Exports/operators_numbers_classificator.h5')
+# model.save('Learning\Model_Exports/operators_numbers_classificator.h5')
 
 """
 LAST EXPORTED MODEL TEST RESULTS:

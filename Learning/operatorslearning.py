@@ -95,8 +95,8 @@ print("\n\nTesting results:\n\nloss: ", loss, "\naccuracy", accuracy,"\n\n")
 """
 LAST EXPORTED MODEL TEST RESULTS:
 
-loss:  0.12140178680419922
-accuracy 0.9722222089767456
+loss:  0.10491247475147247
+accuracy 0.9833333492279053
 """
 
 
