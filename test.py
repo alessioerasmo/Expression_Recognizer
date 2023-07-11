@@ -22,12 +22,5 @@ for i in range(len(labels)):
     if pred!=labels[i]:
         errors += 1
 
-print(errors," errors on ",len(labels), " total examples")
 
-"""
-import matplotlib.pyplot as plt
-plt.imshow(img)
-
-plt.title(pred)
-plt.show()
-"""
+print("\n",errors," errors on ",len(labels), " total examples\n",((len(labels)-errors)/len(labels))*100,"% of accuracy")

@@ -68,7 +68,7 @@ def test():
     from PIL import Image
     import matplotlib.pyplot as plt
 
-    img = np.array(Image.open("Test\\10.jpg").convert('L'))
+    img = np.array(Image.open("Test\\16.jpg").convert('L'))
 
     plt.imshow(img)
     plt.show()

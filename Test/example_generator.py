@@ -55,17 +55,20 @@ gen = generator()
 
 save_path = "Test\exports\\"
 
-images_to_create = 20
+images_to_create = 50
 
 labels = ""
 for i in range(images_to_create):
     image_path = save_path + str(i) + ".jpg"
 
+    
     array_length = random.randrange(2,4)
     expr_array = []
     
     for i in range(array_length):
         expr_array.append(random.randrange(1, 3))
+    
+    #expr_array = [2, 2]
 
     expression = gen.pick_random_expression(expr_array)
     Image.fromarray(expression[0]).save(image_path)
