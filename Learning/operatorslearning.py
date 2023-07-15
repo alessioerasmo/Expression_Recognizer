@@ -90,13 +90,19 @@ loss, accuracy = model.evaluate(x_test,y_test)
 print("\n\nTesting results:\n\nloss: ", loss, "\naccuracy", accuracy,"\n\n")
 
 # export model
-# model.save('Learning/Model_Exports/operators.h5')
+model.save('Learning/Model_Exports/operators.keras')
 
 """
 LAST EXPORTED MODEL TEST RESULTS:
 
-loss:  0.10491247475147247
-accuracy 0.9833333492279053
+*.h5
+    loss:  0.10491247475147247
+    accuracy 0.9833333492279053
+
+*.keras
+    loss:  0.0963006317615509
+    accuracy 0.9888888597488403
+
 """
 
 

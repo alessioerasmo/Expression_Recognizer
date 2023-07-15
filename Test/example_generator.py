@@ -55,7 +55,7 @@ gen = generator()
 
 save_path = "Test\exports\\"
 
-images_to_create = 50
+images_to_create = 200
 
 labels = ""
 for i in range(images_to_create):

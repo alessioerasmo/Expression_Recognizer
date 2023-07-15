@@ -96,32 +96,59 @@ print("\n\nTesting results with only operators set:\n\nloss: ", loss, "\naccurac
 
 
 # export model
-# model.save('Learning\Model_Exports/operators_numbers_classificator.h5')
+model.save('Learning\Model_Exports/operators_numbers_classificator.keras')
 
 """
 LAST EXPORTED MODEL TEST RESULTS:
 
-Testing results with test of 50% numbers and  50% operators of length: 360
+*.h5
 
-loss:  0.03594835475087166
-accuracy 0.9611111283302307
+    Testing results with test of 50% numbers and  50% operators of length: 360
 
-
-313/313 [==============================] - 0s 657us/step - loss: 0.0350 - accuracy: 0.9590
-
-
-Testing results with MNIST numbers set:
-
-loss:  0.03496096655726433
-accuracy 0.9589999914169312
+    loss:  0.03594835475087166
+    accuracy 0.9611111283302307
 
 
-6/6 [==============================] - 0s 801us/step - loss: 0.0341 - accuracy: 0.9611
+    313/313 [==============================] - 0s 657us/step - loss: 0.0350 - accuracy: 0.9590
 
 
-Testing results with only operators set:
+    Testing results with MNIST numbers set:
 
-loss:  0.03406630456447601
-accuracy 0.9611111283302307
+    loss:  0.03496096655726433
+    accuracy 0.9589999914169312
 
+
+    6/6 [==============================] - 0s 801us/step - loss: 0.0341 - accuracy: 0.9611
+
+
+    Testing results with only operators set:
+
+    loss:  0.03406630456447601
+    accuracy 0.9611111283302307
+
+*.keras
+
+    Testing results with test of 50% numbers and  50% operators of length: 360
+
+    loss:  0.03263424336910248
+    accuracy 0.9555555582046509
+
+
+    313/313 [==============================] - 0s 662us/step - loss: 0.0146 - accuracy: 0.9840
+
+
+    Testing results with MNIST numbers set:
+
+    loss:  0.014599429443478584
+    accuracy 0.984000027179718
+
+
+    6/6 [==============================] - 0s 801us/step - loss: 0.0538 - accuracy: 0.9222
+
+
+    Testing results with only operators set:
+
+    loss:  0.05380188673734665
+    accuracy 0.9222221970558167
+    
 """

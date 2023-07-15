@@ -11,7 +11,7 @@ class classificationAgent(Agent):
 
     def __init__(self,env=None):
         # loading the exported model
-        self.model = keras.models.load_model('Learning\Model_Exports\operators_numbers_classificator.h5')
+        self.model = keras.models.load_model('Learning\Model_Exports\operators_numbers_classificator.keras')
         # the environment is an array of images, each converted into a numpy array of shape (28, 28)
         if not env is None:
             self.set_env(env)

@@ -75,12 +75,17 @@ loss, accuracy = model.evaluate(x_test,y_test)
 print("\n\nTesting results:\n\nloss: ", loss, "\naccuracy", accuracy,"\n\n")
 
 # export model
-# model.save('Learning/Model_Exports/MNIST.h5')
+# model.save('Learning/Model_Exports/MNIST.keras')
 
 """
 LAST EXPORTED MODEL TEST RESULTS:
 
-loss:  0.054929010570049286
-accuracy 0.9815000295639038
+*.h5
+    loss:  0.054929010570049286
+    accuracy 0.9815000295639038
+
+*.keras
+    loss:  0.05537978559732437
+    accuracy 0.9810000061988831
 
 """

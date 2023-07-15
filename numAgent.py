@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 class numAgent(Agent):
     def __init__(self,env=None):
         # loading the exported model
-        self.model = keras.models.load_model('Learning\Model_Exports\MNIST.h5')
+        self.model = keras.models.load_model('Learning\Model_Exports\MNIST.keras')
         # the environment is an array of images, each converted into a numpy array of shape (28, 28)
         if not env is None:
             self.set_env(env)
