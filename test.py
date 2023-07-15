@@ -1,6 +1,7 @@
-from expressionsAgent import expressionAgent
-from expressionsEnvironment import expressionsEnvironment
-import numpy as np
+# classi progetto   
+from expressionsAgent import *                       
+from expressionsEnvironment import *            
+
 from PIL import Image
 
 
@@ -12,7 +13,7 @@ exp_env = expressionsEnvironment()
 expr_ag = expressionAgent()
 
 for i in range(len(labels)):
-    img = np.array(Image.open("Test\exports\\" + str(i) + ".jpg").convert('L'))
+    img = Image.open("Test\exports\\" + str(i) + ".jpg")
 
     exp_env.initial_percepts(img)
     expr_ag.set_env(exp_env)
