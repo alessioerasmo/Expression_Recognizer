@@ -83,14 +83,14 @@ model.compile(loss='sparse_categorical_crossentropy', optimizer='sgd', metrics=[
 model.summary()
 
 # learning
-model.fit(x_train, y_train, epochs=1000)
+model.fit(x_train, y_train, epochs=500)
 
 # testing model 
 loss, accuracy = model.evaluate(x_test,y_test)
 print("\n\nTesting results:\n\nloss: ", loss, "\naccuracy", accuracy,"\n\n")
 
 # export model
-model.save('Learning/Model_Exports/operators.keras')
+# model.save('Learning/Model_Exports/operators.keras')
 
 """
 LAST EXPORTED MODEL TEST RESULTS:

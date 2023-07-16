@@ -68,19 +68,20 @@ def test():
     from PIL import Image
     import matplotlib.pyplot as plt
 
-    img = np.array(Image.open("Test\\16.jpg").convert('L'))
+    img = np.array(Image.open("Test\\10.jpg").convert('L'))
 
-    plt.imshow(img)
-    plt.show()
+    
 
     exp_env = expressionsEnvironment(img)
     agent = expressionAgent(exp_env)
   
 
     result = agent.go()
-    print("\nexpression found: ", result, " = ", eval(result))
 
+    plt.imshow(img)
+    plt.title("expression found: " + str(result) + " = " + str(eval(result)))
+    plt.show()
 
 
 if __name__ == "__main__":
-    test() #do testing with 5 random images
+    test()

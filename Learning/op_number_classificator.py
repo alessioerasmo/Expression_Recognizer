@@ -96,7 +96,7 @@ print("\n\nTesting results with only operators set:\n\nloss: ", loss, "\naccurac
 
 
 # export model
-model.save('Learning\Model_Exports/operators_numbers_classificator.keras')
+# model.save('Learning\Model_Exports/operators_numbers_classificator.keras')
 
 """
 LAST EXPORTED MODEL TEST RESULTS:

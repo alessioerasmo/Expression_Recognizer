@@ -78,4 +78,4 @@ def test(testing_examples):
         plt.show()
 
 if __name__ == "__main__":
-    test(1) #do testing with 5 random images
+    test(15) #do testing with 5 random images

@@ -55,21 +55,30 @@ gen = generator()
 
 save_path = "Test\exports\\"
 
-images_to_create = 200
+images_to_create = 50
 
 labels = ""
 for i in range(images_to_create):
     image_path = save_path + str(i) + ".jpg"
 
     
-    array_length = random.randrange(2,4)
+    array_length = random.randrange(2,4) # numero di operandi
     expr_array = []
     
     for i in range(array_length):
-        expr_array.append(random.randrange(1, 3))
+        expr_array.append(random.randrange(1, 3)) # lunghezza di ogni operando
     
-    #expr_array = [2, 2]
+    """
+        viene generato un array del tipo [2, 2, 1], che indica che l'espressione
+        generata casualmente avrà tanti operandi quanti elementi dell'array, ognuno 
+        con un numero di cifre presente nell'array.
 
+        Esempi: 
+        - [2 ,2, 1] genera 23+22-1
+        - [2 ,1, 1] genera 19/5*3
+
+        eccetera
+    """
     expression = gen.pick_random_expression(expr_array)
     Image.fromarray(expression[0]).save(image_path)
     labels = labels +  expression[1] + ","
