@@ -74,14 +74,10 @@ def test():
     from PIL import Image
     import matplotlib.pyplot as plt
 
-    img = np.array(Image.open("Test\\10.jpg").convert('L'))
-
-    
-
+    # img = np.array(Image.open("Test\\10.jpg").convert('L'))
+    img = np.array(Image.open("Test/exports/5.jpg").convert('L'))
     exp_env = expressionsEnvironment(img)
     agent = expressionAgent(exp_env)
-  
-
     result = agent.go()
 
     plt.imshow(img)

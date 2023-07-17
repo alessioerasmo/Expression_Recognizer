@@ -38,6 +38,8 @@ class generator:
                 num = self.pick_random_number()
                 images.append(np.rot90(np.rot90(np.rot90(num[0]))))
                 values += str(num[1])
+                if num[1] == 0:
+                    break 
             
             if (i+1 < len(list)):
                 op = self.pick_random_operator()
