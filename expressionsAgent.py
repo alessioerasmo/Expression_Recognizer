@@ -17,7 +17,7 @@ class expressionAgent(Agent):
         if not env is None:
             self.set_env(env)
 
-    def go(self,n=10):
+    def go(self,n=10, evaluate=False):
         """acts for n time steps"""
 
         expression = ""
@@ -34,10 +34,16 @@ class expressionAgent(Agent):
                 else:
                     expression = expression + str(self.guess(image))
             else:
-                return expression
+                if (evaluate):
+                    return eval(expression)
+                else: 
+                    return expression
         
-        return expression
-
+        if (evaluate):
+            return eval(expression)
+        else: 
+            return expression
+        
         
     def set_env(self, env):
         self.env = env
