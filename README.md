@@ -8,11 +8,11 @@ Le espressioni lette dall'agente sono come quelle mostrate in figura:
 ![an exmaple](https://github.com/alessioerasmo/Expression_Recognizer/blob/main/Test/exports/49.jpg)![an example](https://github.com/alessioerasmo/Expression_Recognizer/blob/main/Test/exports/13.jpg)
 
 ### Far partire il progetto
-Per far partire il progeto è necessario avere python installato sul computer. La versione consigliata è 3.11 o superiore.
+Per far partire il progeto è necessario avere python installato sul computer. La versione consigliata è 3.11 o superiore. Inoltre, per caricare senza errori i modelli gia esportati, è necessario avere installate le versioni 2.12/2.13 di keras e tensorflow  
  
  1. Installare tutte le dipendenze se non presenti
  ```console
-  pip: -r requirements.txt
+  pip install -r requirements.txt
 ```
 2. Eseguire lo script: è possibile testare il corretto funzionamento dell'agente facendo partire il file "Test.py"
 
