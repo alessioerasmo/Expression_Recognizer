@@ -5,7 +5,7 @@ from expressionsEnvironment import *
 from PIL import Image
 
 
-labels = open("Test\exports\labels.txt").read().split(",")
+labels = open("Test/exports/labels.txt").read().split(",")
 
 errors = 0
 
@@ -13,7 +13,7 @@ exp_env = expressionsEnvironment()
 expr_ag = expressionAgent()
 
 for i in range(len(labels)):
-    img = Image.open("Test\exports\\" + str(i) + ".jpg")
+    img = Image.open("Test/exports/" + str(i) + ".jpg")
 
     exp_env.initial_percepts(img)
     expr_ag.set_env(exp_env)

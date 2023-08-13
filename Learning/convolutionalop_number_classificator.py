@@ -51,21 +51,29 @@ y_train = np.array(y_train).reshape(-1)
 print("training with x_train of shape : ",x_train.shape,"\ntraining with y_test of shape : ",y_train.shape,"numbers over operators: ",numbers_over_ops)
 
 
+
 # Feed-Forward neural network model generation
+from keras import layers
 
 model = Sequential()
+model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
+model.add(layers.MaxPooling2D((2, 2)))
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+model.add(layers.MaxPooling2D((2, 2)))
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
 model.add(Flatten(input_shape=(28,28,)))
 model.add(Lambda(lambda x : x/255.0))
-model.add(Dense(200))
+model.add(Dense(15))
 model.add(Activation('sigmoid'))
 model.add(Dense(1))
 model.add(Activation('sigmoid'))
+
 
 model.compile(loss='mean_squared_error', optimizer='sgd', metrics=['accuracy']) 
 
 model.summary()
 
-model.fit(x_train, y_train, epochs=500)
+model.fit(x_train, y_train, epochs=200)
 
 
 
@@ -94,61 +102,34 @@ print("\n\nTesting results with MNIST numbers set:\n\nloss: ", loss, "\naccuracy
 loss, accuracy = model.evaluate(op_x_test, op_y_test)
 print("\n\nTesting results with only operators set:\n\nloss: ", loss, "\naccuracy", accuracy,"\n\n")
 
-
 # export model
 model.save('Learning/Model_Exports/operators_numbers_classificator.keras')
+
 
 """
 LAST EXPORTED MODEL TEST RESULTS:
 
-*.h5
+Testing results with test of 50% numbers and  50% operators of length: 360 
 
-    Testing results with test of 50% numbers and  50% operators of length: 360
-
-    loss:  0.03594835475087166
-    accuracy 0.9611111283302307
+loss:  0.011761670932173729 
+accuracy 0.9888888597488403 
 
 
-    313/313 [==============================] - 0s 657us/step - loss: 0.0350 - accuracy: 0.9590
+313/313 [==============================] - 0s 897us/step - loss: 0.0072 - accuracy: 0.9907
 
 
-    Testing results with MNIST numbers set:
+Testing results with MNIST numbers set:
 
-    loss:  0.03496096655726433
-    accuracy 0.9589999914169312
-
-
-    6/6 [==============================] - 0s 801us/step - loss: 0.0341 - accuracy: 0.9611
+loss:  0.0071569764986634254 
+accuracy 0.9907000064849854 
 
 
-    Testing results with only operators set:
-
-    loss:  0.03406630456447601
-    accuracy 0.9611111283302307
-
-*.keras
-
-    Testing results with test of 50% numbers and  50% operators of length: 360
-
-    loss:  0.03263424336910248
-    accuracy 0.9555555582046509
+6/6 [==============================] - 0s 10ms/step - loss: 0.0170 - accuracy: 0.9889
 
 
-    313/313 [==============================] - 0s 662us/step - loss: 0.0146 - accuracy: 0.9840
+Testing results with only operators set:
 
+loss:  0.0170199666172266 
+accuracy 0.9888888597488403 
 
-    Testing results with MNIST numbers set:
-
-    loss:  0.014599429443478584
-    accuracy 0.984000027179718
-
-
-    6/6 [==============================] - 0s 801us/step - loss: 0.0538 - accuracy: 0.9222
-
-
-    Testing results with only operators set:
-
-    loss:  0.05380188673734665
-    accuracy 0.9222221970558167
-    
 """

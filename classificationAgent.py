@@ -11,7 +11,7 @@ class classificationAgent(Agent):
 
     def __init__(self,env=None):
         # loading the exported model
-        self.model = keras.models.load_model('Learning\Model_Exports\operators_numbers_classificator.keras')
+        self.model = keras.models.load_model('Learning/Model_Exports/operators_numbers_classificator.keras', safe_mode=False)
         # the environment is an array of images, each converted into a numpy array of shape (28, 28)
         if not env is None:
             self.set_env(env)
@@ -35,12 +35,12 @@ class classificationAgent(Agent):
 def test(testing_examples):
     import random
     
-    labels_file = open("Learning\Datasets\operators/test/labels_test.txt")
+    labels_file = open("Learning/Datasets/operators/test/labels_test.txt")
     labels = np.array(labels_file.read().split(","))   
     op_y_test = np.ones(len(labels))
     op_x_test = []
     for i in range(len(op_y_test)):
-        img = np.array(Image.open("Learning\Datasets\operators/test/" + str(i+1) +".jpg").convert('L'))
+        img = np.array(Image.open("Learning/Datasets/operators/test/" + str(i+1) +".jpg").convert('L'))
         op_x_test.append(img)
     op_x_test = np.array(op_x_test)
     assert len(op_x_test) == len(op_y_test)

@@ -68,11 +68,14 @@ from tensorflow import keras
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Flatten, Lambda
 
+from keras import layers
 model = Sequential()
-model.add(Flatten(input_shape=(28,28,)))
+model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28,1)))
+model.add(layers.MaxPooling2D((2, 2)))
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+model.add(layers.MaxPooling2D((2, 2)))
 model.add(Lambda(lambda x : x/255.0))
-model.add(Dense(200))
-model.add(Activation('sigmoid'))
+model.add(layers.Flatten())
 model.add(Dense(20))
 model.add(Activation('relu'))
 model.add(Dense(4))
@@ -83,7 +86,7 @@ model.compile(loss='sparse_categorical_crossentropy', optimizer='sgd', metrics=[
 model.summary()
 
 # learning
-model.fit(x_train, y_train, epochs=500)
+model.fit(x_train, y_train, epochs=100)
 
 # testing model 
 loss, accuracy = model.evaluate(x_test,y_test)
@@ -91,47 +94,3 @@ print("\n\nTesting results:\n\nloss: ", loss, "\naccuracy", accuracy,"\n\n")
 
 # export model
 model.save('Learning/Model_Exports/operators.keras')
-
-"""
-LAST EXPORTED MODEL TEST RESULTS:
-
-*.h5
-    loss:  0.10491247475147247
-    accuracy 0.9833333492279053
-
-*.keras
-    loss:  0.0963006317615509
-    accuracy 0.9888888597488403
-
-"""
-
-
-"""
-# troviamo le immagini sbagliate
-def max_prob(arr):
-    maxind = 0
-    for i in range(len(arr)):
-        if arr[i] >= arr[maxind]:
-            maxind = i
-    return maxind
-
-predictions = model.predict(x_test)
-prediction_values = []
-
-for i in range(len(predictions)):
-    prediction_values.append(max_prob(predictions[i]))
-
-wrong_numbers = []
-
-for i in range(len(y_test)):
-    if prediction_values[i] != y_test[i]:
-        plt.imshow(x_test[i])
-        plt.text(0,0, "Predicted "+ str(prediction_values[i]) + " instead of " + str(y_test[i]), color="red", backgroundcolor="black" )
-        plt.show()
-        wrong_numbers.append(i+1)  
-
-print(len(wrong_numbers)," wrong numbers:\n",wrong_numbers)
-
-print(model.predict(np.array(x_test[9]).reshape(-1, 28, 28, 1)))
-
-"""
