@@ -36,7 +36,7 @@ model.compile(loss='sparse_categorical_crossentropy', optimizer='sgd', metrics=[
 model.summary()
 
 # learning
-model.fit(x_train, y_train, epochs=20)
+model.fit(x_train, y_train, epochs=40)
 
 # testing model
 loss, accuracy = model.evaluate(x_test,y_test)
