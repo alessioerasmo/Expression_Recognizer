@@ -57,5 +57,6 @@ docs/_build/
 target/
 
 nvvm/
+Learning/Model_Exports/
 *.h5
 *.keras
