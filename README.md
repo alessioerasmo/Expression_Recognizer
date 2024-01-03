@@ -17,3 +17,6 @@ Per far partire il progeto è necessario avere python installato sul computer. L
 2. Eseguire lo script: è possibile testare il corretto funzionamento dell'agente facendo partire il file "Test.py"
 
 4. Leggere la documentazione presente nella repository
+
+### Implementazione e note future
+I modelli di intelligenza artificiali sono stati generati utilizzando la libreria "tensorflow". Seguiranno sviluppi anche con la libreria pytorch.
